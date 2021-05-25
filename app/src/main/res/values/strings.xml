@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ScoreApplication2</string>
+    <string name="zore">0</string>
+    <string name="jia1">+1</string>
+    <string name="jia2">+2</string>
+    <string name="jia3">+3</string>
+    <string name="Adui">A队</string>
+    <string name="Bdui">B队</string>
 </resources>
