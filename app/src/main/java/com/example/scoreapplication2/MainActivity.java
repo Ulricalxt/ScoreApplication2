@@ -3,7 +3,9 @@ package com.example.scoreapplication2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.scoreapplication2.databinding.ActivityMainBinding;
 
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             saveB = i[3];
 
         }else {init();}
+        readSP();
         show();
 
 
@@ -136,5 +139,29 @@ public class MainActivity extends AppCompatActivity {
         saveA=0;
         saveB=0;
         show();
+    }
+    /**
+     *存储数据
+     * */
+    private void writeSP() {
+        SharedPreferences.Editor sp =getSharedPreferences( MY_SP,MODE_PRIVATE).edit();
+        sp.putInt(SP_A,scoreA);
+        sp.putInt(SP_B,scoreB);
+        sp.apply();
+    }
+
+    private  void readSP(){
+        SharedPreferences sp=getSharedPreferences( MY_SP,MODE_PRIVATE);
+        scoreA = sp.getInt(SP_A,0);
+        scoreB = sp.getInt(SP_B,0);
+    }
+    /**
+     *读取数据
+     * */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        writeSP();
+        Log.i(TAG,"onPause()， 界面离开前台，可能可见但不能交互");
     }
 }
