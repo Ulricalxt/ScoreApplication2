@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             saveB = i[3];
 
         }
-        else {}
-        show();
+
 
         mBinding.buttonAAdd1.setOnClickListener(v ->{
             addA(1);
@@ -50,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         mBinding.buttonBAdd3.setOnClickListener(v ->{
             addB(3);
         });
+        mBinding.imageButtonReset.setOnClickListener(V ->{
+            reset();
+        });
+
 
 
 
@@ -76,6 +79,17 @@ public class MainActivity extends AppCompatActivity {
         show();
 
     }
+    /**
+     * 清除
+     * */
+    public void reset(){
+        save();
+        scoreA = 0;
+        scoreB = 0;
+        show();
+
+    }
+
     /**
      *保存数据
      * */
