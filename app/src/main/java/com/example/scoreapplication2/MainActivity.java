@@ -1,5 +1,6 @@
 package com.example.scoreapplication2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
             saveA = i[2];
             saveB = i[3];
 
-        }
+        }else {init();}
+        show();
 
 
         mBinding.buttonAAdd1.setOnClickListener(v ->{
@@ -117,5 +119,22 @@ public class MainActivity extends AppCompatActivity {
     public void show(){
         mBinding.textScoreA.setText(String.valueOf(scoreA));
         mBinding.textScoreB.setText(String.valueOf(scoreB));
+    }
+    /**
+     *
+     *消除bag
+     *
+     * */
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putIntArray(KEY,new int[]{scoreA,scoreB,saveA,saveB});
+    }
+    private void init(){
+        scoreA=0;
+        scoreB=0;
+        saveA=0;
+        saveB=0;
+        show();
     }
 }
