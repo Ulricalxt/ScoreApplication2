@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         mBinding.imageButtonReset.setOnClickListener(V ->{
             reset();
         });
+        mBinding.imageButtonRevoke.setOnClickListener(v ->{
+            revoke();
+
+        });
 
 
 
@@ -89,13 +93,22 @@ public class MainActivity extends AppCompatActivity {
         show();
 
     }
+    /**
+     *撤回
+     * */
+    public void revoke(){
+        scoreA = saveA;
+        scoreB = saveB;
+        show();
+
+    }
 
     /**
      *保存数据
      * */
     public void save(){
         saveA= Integer.parseInt(mBinding.textScoreA.getText().toString());
-        saveA= Integer.parseInt(mBinding.textScoreA.getText().toString());
+        saveB= Integer.parseInt(mBinding.textScoreB.getText().toString());
 
     }
     /**
